@@ -5,6 +5,7 @@
         <description>MusicBrainz artist search</description>
         <documentationURL>http://musicbrainz.org/doc/Development/XML_Web_Service/Version_2/Search</documentationURL>
         <sampleQuery>SELECT * FROM {table}</sampleQuery>
+         <sampleQuery>URLPattern:musicbrainz.search.artist/artist/{@query} </sampleQuery>
     </meta>
     <bindings>
         <select itemPath="metadata.artist-list" produces="XML">
