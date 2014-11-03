@@ -36,8 +36,8 @@ var ld={};
 ld['@context']= ns;
 ld['@id']= URI;
 ld['@type']='sioct:MicroblogPost';
-ld['foaf:name']= jsontuple["artist-list"].artist[0].name;
-ld['foaf:country']= jsontuple["artist-list"].artist[0].area.name;
+ld['foaf:name']= jsontuple["artist-list"].count;
+//ld['foaf:country']= jsontuple["artist-list"].artist[0].area.name;
 
 response.object = ld;
 ;]]>
