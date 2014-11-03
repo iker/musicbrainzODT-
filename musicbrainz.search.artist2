@@ -29,7 +29,8 @@
             </inputs>    
           <execute> <![CDATA[ 
 var jsontuple=y.xmlToJson(tuple);    //convert to json.
-
+y.log(jsontuple.artist);
+y.log(jsontuple["artist-list"]);
 var ns = {foaf:"http://foaf.org/types#"};   
 var ld={};
 ld['@context']= ns;
