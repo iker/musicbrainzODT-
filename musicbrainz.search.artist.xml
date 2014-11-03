@@ -5,7 +5,7 @@
         <description>MusicBrainz artist search</description>
         <documentationURL>http://musicbrainz.org/doc/Development/XML_Web_Service/Version_2/Search</documentationURL>
         <sampleQuery>SELECT * FROM {table}</sampleQuery>
-         <sampleQuery>URLPattern:musicbrainz.search.artist/artist/{@query} </sampleQuery>
+         <sampleQuery>URLPattern: http://rdf.onekin.org/musicbrainz.search.artist/artist/{@query} </sampleQuery>
     </meta>
     <bindings>
         <select itemPath="metadata.artist-list" produces="XML">
@@ -22,5 +22,24 @@
                 <total default="25" />
             </paging>
         </select>
+        <function name="artist"> <!--LIFTING -->
+           <inputs>
+               <pipe id="tuple" paramType="variable" />
+               <key id="URI" paramType="variable"  type="foaf:Person"  xmlns:foaf="http://foaf.org/types#" required="true"/>
+            </inputs>    
+          <execute> <![CDATA[ 
+var jsontuple=y.xmlToJson(tuple);    //convert to json.
+var ns = {foaf:"http://foaf.org/types#"};   
+var ld={};
+ld['@context']= ns;
+ld['@id']= URI;
+ld['@type']='sioct:MicroblogPost';
+ld['foaf:name']= jsontuple.artist.name;
+ld['foaf:country']= jsontuple.artist.area.name;
+
+response.object = ld;
+;]]>
+            </execute>
+           </function>
      </bindings>
 </table>
