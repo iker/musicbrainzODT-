@@ -4,6 +4,7 @@
 // @author         	Jon Iturrioz
 // @author         	Iker Azpeitia
 // @author         	Iker3
+// @author         	Iker4
 // @version        	0.2
 // @namespace      	trygger
 // @description	   TRYGGER: a triggering System for YQL
